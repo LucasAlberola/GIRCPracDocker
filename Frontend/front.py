@@ -9,7 +9,6 @@ app = Flask(__name__)
 def index():
     timeData = requests.get("http://"+API_IP+":5000/api")
     currentTime = timeData.json()["time"]
-    #currentTime = json.loads(timeData.read())[0]["time"]
     return render_template("index.html", time=currentTime)
 
 
