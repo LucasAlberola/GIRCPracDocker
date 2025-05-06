@@ -14,15 +14,19 @@ def index():
 
 
 if __name__ == "__main__":
+    ok = False
     if (len(sys.argv) == 2):
         API_IP = sys.argv[1]
+        ok = True
 
     elif(len(sys.argv) == 1):
         API_IP = "127.0.0.1"
+        ok = True
 
     else:
         print("ERROR: Demasiados parámetros.")
 
-    app.run(debug=True, port=8080)
+    if ok:
+        app.run(debug=True, port=8080)
 
 
