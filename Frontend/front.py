@@ -7,7 +7,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    timeData = requests.get("http://"+API_IP+":5000/api")
+    currentTime = timeData.json()["time"]
+    #currentTime = json.loads(timeData.read())[0]["time"]
+    return render_template("index.html", time=currentTime)
 
 
 
@@ -21,6 +24,6 @@ if __name__ == "__main__":
     else:
         print("ERROR: Demasiados parámetros.")
 
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
 
 
