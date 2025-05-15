@@ -5,8 +5,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      constraints:
-        - node.labels.tipo == frontend
+      placement:
+        constraints:
+          - node.labels.tipo == frontend
     init: true
     networks:
       - girc_network
