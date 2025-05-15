@@ -8,5 +8,5 @@ RUN pip install flask && pip install requests
 
 EXPOSE 8080
 
-CMD ["python3", "front.py"]
+CMD ["python3", "front.py", "backend-app"]
 
