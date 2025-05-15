@@ -5,6 +5,8 @@ services:
     deploy:
       mode: replicated
       replicas: 1
+      constraints:
+        - node.labels.tipo == frontend
     init: true
     networks:
       - girc_network
@@ -21,5 +23,6 @@ services:
     ports:
       - 5000:5000
 networks:
-  - girc_network
+  girc_network:
+    driver: overlay
 
